@@ -1,7 +1,6 @@
 {
-  "name": "marasigan_alexapaula/app",
-  "description": "LavaLust project deployment",
-  "type": "project",
+  "name": "alexamarasigan/marasigan_alexapaula",
+  "description": "My PHP project deployed on Render",
   "require": {
     "php": "^7.4 || ^8.0",
     "monolog/monolog": "^2.10",
