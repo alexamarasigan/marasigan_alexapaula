@@ -1086,11 +1086,9 @@ class Database {
         if ($end === null) {
             // Only a limit value
             switch ($driver) {
-                case 'mysql':
-                case 'pgsql':
-                case 'sqlite':
-                    $this->limit = " LIMIT $limit";
-                    break;
+            case 'mysql':
+                $dsn = "mysql:host=$host;port=$port;dbname=$dbname_value;charset=$charset";
+                break;
                 case 'sqlsrv':
                     // Note: LIMIT not supported directly in SQL Server
                     $this->limit = " OFFSET 0 ROWS FETCH NEXT $limit ROWS ONLY";
