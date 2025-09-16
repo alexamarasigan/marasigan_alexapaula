@@ -3,8 +3,8 @@
   "description": "My PHP project deployed on Render",
   "require": {
     "php": "^7.4 || ^8.0",
-    "monolog/monolog": "^2.10",
-    "psr/log": "^1.1"
+    "monolog/monolog": "^2.10"
   },
-  "license": "proprietary"
+  "license": "proprietary",
+  "type": "project"
 }
