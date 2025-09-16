@@ -1,10 +1,9 @@
 {
   "name": "alexamarasigan/marasigan_alexapaula",
   "description": "My PHP project deployed on Render",
-  "require": {
-    "php": "^7.4 || ^8.0",
-    "monolog/monolog": "^2.10"
-  },
+  "type": "project",
   "license": "proprietary",
-  "type": "project"
+  "require": {
+    "php": "^8.0"
+  }
 }
