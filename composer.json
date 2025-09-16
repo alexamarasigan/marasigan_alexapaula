@@ -1,5 +1,7 @@
 {
   "require": {
-    "monolog/monolog": "^2.0"
+    "php": "^7.4 || ^8.0",
+    "monolog/monolog": "^2.10",
+    "psr/log": "^1.1"
   }
 }
