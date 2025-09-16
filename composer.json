@@ -1,7 +1,11 @@
 {
+  "name": "marasigan_alexapaula/app",
+  "description": "LavaLust project deployment",
+  "type": "project",
   "require": {
     "php": "^7.4 || ^8.0",
     "monolog/monolog": "^2.10",
     "psr/log": "^1.1"
-  }
+  },
+  "license": "proprietary"
 }
