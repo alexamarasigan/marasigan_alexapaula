@@ -1,0 +1,2 @@
+- [x] Modify UsersController index method to implement pagination using the Pagination library and UsersModel paginate method
+- [x] Update app/views/users/index.php to display the pagination HTML below the users table

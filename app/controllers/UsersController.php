@@ -14,7 +14,29 @@ class UsersController extends Controller {
 
     public function index()
     {
-        $data['users'] = $this->UsersModel->all();
+        $page = $this->io->get('page');
+        if (!$page || !is_numeric($page) || $page < 1) {
+            $page = 1;
+        }
+        $per_page = 10; // Number of users per page
+
+        // Get paginated users data
+        $pagination_data = $this->UsersModel->paginate($per_page, $page);
+
+        // Load Pagination library and initialize
+        $this->call->library('Pagination');
+        $pagination = new Pagination();
+        $pagination->set_theme('tailwind');
+        $pagination->set_options(['page_delimiter' => '?page=']);
+        $pagination_array = $pagination->initialize(
+            $pagination_data['total'],
+            $per_page,
+            $page,
+            'users/index'
+        );
+
+        $data['users'] = $pagination_data['data'];
+        $data['pagination'] = $pagination->paginate();
 
         $this->call->view('users/index', $data);
     }

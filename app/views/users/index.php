@@ -73,6 +73,13 @@
       </table>
     </div>
 
+    <!-- Pagination -->
+    <?php if (!empty($pagination)): ?>
+      <div class="mt-6">
+        <?= $pagination; ?>
+      </div>
+    <?php endif; ?>
+
   </div>
 
 </body>
