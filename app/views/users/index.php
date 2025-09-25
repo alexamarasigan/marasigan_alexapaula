@@ -26,13 +26,25 @@
   <!-- Card Container -->
   <div class="bg-white shadow-2xl rounded-2xl p-6 w-full md:w-4/5 lg:w-3/4 relative z-10 border border-gray-100">
 
-    <!-- Header with Create Button -->
+    <!-- Header with Create Button and Search -->
     <div class="flex justify-between items-center mb-6">
       <h2 class="text-xl font-semibold text-gray-700">User Records</h2>
-      <a href="<?=site_url('users/create');?>"
-         class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-lg shadow transition">
-        Create User
-      </a>
+      <div class="flex items-center gap-4">
+        <!-- Search Form -->
+        <form method="GET" action="<?=site_url('users/index');?>" class="flex items-center gap-2">
+          <input type="text" name="search" value="<?=html_escape($search ?? '');?>"
+                 placeholder="Search by name or email..."
+                 class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="submit"
+                  class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg shadow transition">
+            Search
+          </button>
+        </form>
+        <a href="<?=site_url('users/create');?>"
+           class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-lg shadow transition">
+          Create User
+        </a>
+      </div>
     </div>
 
     <!-- Table -->

@@ -20,8 +20,19 @@ class UsersController extends Controller {
         }
         $per_page = 10; // Number of users per page
 
-        // Get paginated users data
-        $pagination_data = $this->UsersModel->paginate($per_page, $page);
+        // Get search query
+        $search = $this->io->get('search');
+        $conditions = [];
+        if (!empty($search)) {
+            $conditions = [
+                'first_name LIKE' => "%{$search}%",
+                'last_name LIKE' => "%{$search}%",
+                'email LIKE' => "%{$search}%"
+            ];
+        }
+
+        // Get paginated users data with search conditions
+        $pagination_data = $this->UsersModel->paginate($per_page, $page, $conditions);
 
         // Load Pagination library and initialize
         $this->call->library('Pagination');
@@ -32,11 +43,12 @@ class UsersController extends Controller {
             $pagination_data['total'],
             $per_page,
             $page,
-            'users/index'
+            'users/index' . (!empty($search) ? '?search=' . urlencode($search) : '')
         );
 
         $data['users'] = $pagination_data['data'];
         $data['pagination'] = $pagination->paginate();
+        $data['search'] = $search;
 
         $this->call->view('users/index', $data);
     }
